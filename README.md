@@ -1,4 +1,6 @@
-# Approved Scripts
+# Approved Scripts for Home Assistant
+
+![logo](docs/source/assets/images/icon.png)
 
 Approved Scripts lets an administrator approve a narrowly defined script revision for named non-admin Home Assistant users. Delegated execution uses an immutable, reviewed snapshot in system context; it never invokes the live script entity.
 
