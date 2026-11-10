@@ -1,7 +1,9 @@
 {
   "domain": "approved_scripts",
   "name": "Approved Scripts",
-  "codeowners": [],
+  "codeowners": [
+    "@Lint-Free-Technology"
+  ],
   "config_flow": true,
   "dependencies": [
     "frontend",
@@ -9,6 +11,8 @@
     "script",
     "websocket_api"
   ],
+  "documentation": "https://as.lf.technology",
+  "issue_tracker": "https://github.com/Lint-Free-Technology/approved_scripts/issues",
   "iot_class": "local_push",
   "integration_type": "service",
   "requirements": [],
