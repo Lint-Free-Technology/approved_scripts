@@ -1,0 +1,48 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 9 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  frontend:
+    name: Frontend bundle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run check:frontend
+      - run: npm run build
+      - name: Verify committed artifacts
+        run: git diff --exit-code -- custom_components/approved_scripts/manifest.json custom_components/approved_scripts/frontend/approved-scripts.js custom_components/approved_scripts/frontend/approved-scripts.js.gz custom_components/approved_scripts/frontend/approved-scripts-panel.js custom_components/approved_scripts/frontend/approved-scripts-panel.js.gz
+
+  python:
+    name: Home Assistant security tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -r requirements-test.txt
+      - run: pytest tests/
+
+  hacs:
+    name: HACS validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: HACS validation
+        uses: hacs/action@main
+        with:
+          category: integration

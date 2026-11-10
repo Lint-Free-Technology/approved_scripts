@@ -1,0 +1,6 @@
+{
+  "domain": "fake_mqtt",
+  "name": "Approved Scripts test MQTT",
+  "version": "1.0.0",
+  "requirements": []
+}

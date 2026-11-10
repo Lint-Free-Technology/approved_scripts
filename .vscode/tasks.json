@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Python: Set up virtual environment",
+      "type": "shell",
+      "command": "python3 -m venv .venv && source .venv/bin/activate && python -m pip install --upgrade pip && python -m pip install -r requirements-test.txt",
+      "problemMatcher": [],
+      "presentation": { "panel": "dedicated", "reveal": "always", "group": "setup" }
+    },
+    {
+      "label": "HA: Start persistent server",
+      "type": "shell",
+      "command": "source .venv/bin/activate && TEST_COMPONENTS_PATH=$(python scripts/prepare_ha_test_components.py) && HA_VERSION=$(awk 'NF && $1 !~ /^#/ { print; exit }' tests/HA_VERSION) && HA_VERSION=$HA_VERSION HA_CONFIG_PATH=tests/ha-config HA_CUSTOM_COMPONENTS_PATH=$TEST_COMPONENTS_PATH HA_SETUP_INTEGRATION=approved_scripts python -m ha_testcontainer.ha_server",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "ha-server",
+        "pattern": { "regexp": "^$" },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^Starting Home Assistant",
+          "endsPattern": "Home Assistant is ready at"
+        }
+      },
+      "presentation": { "panel": "dedicated", "reveal": "always", "group": "ha" }
+    },
+    {
+      "label": "pytest: All security tests",
+      "type": "shell",
+      "command": "source .venv/bin/activate && if [ -f .ha_env ]; then source .ha_env; fi && pytest tests/",
+      "group": "test",
+      "problemMatcher": [],
+      "presentation": { "panel": "shared", "group": "pytest" }
+    },
+    {
+      "label": "pytest: Run individual security test",
+      "type": "shell",
+      "command": "source .venv/bin/activate && if [ -f .ha_env ]; then source .ha_env; fi && pytest tests/test_runtime_security.py -k '${input:testExpression}'",
+      "group": "test",
+      "problemMatcher": [],
+      "presentation": { "panel": "shared", "group": "pytest" }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "testExpression",
+      "type": "promptString",
+      "description": "pytest -k expression, e.g. stale or executes_snapshot"
+    }
+  ]
+}

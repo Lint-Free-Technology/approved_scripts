@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Approved Scripts">
+  <path fill="#E0E3E5" d="M49 24a16 16 0 0 0-16 16v176a16 16 0 0 0 16 16h110a16 16 0 0 0 16-16V88l-64-64H49Zm62 12v48h48l-48-48Z"/>
+  <path fill="#BCC1C5" d="M111 36v48h48l-48-48Z"/>
+  <path transform="translate(-10 2)" fill="none" stroke="#CE3226" stroke-linecap="round" stroke-linejoin="round" stroke-width="11" d="M102 92c-12 0-17 7-17 18v13c0 8-5 13-14 15 9 2 14 7 14 15v13c0 11 5 18 17 18m25-92c12 0 17 7 17 18v13c0 8 5 13 14 15-9 2-14 7-14 15v13c0 11-5 18-17 18"/>
+  <circle cx="181" cy="183" r="43" fill="#43A047"/>
+  <path fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="11" d="m160 183 14 14 28-31"/>
+</svg>

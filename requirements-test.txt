@@ -1,0 +1,4 @@
+# Runtime security tests use the same disposable Home Assistant container
+# harness as UIX. This project is a custom integration, not a Python package,
+# so install the test tools directly rather than installing this source tree.
+ha-testcontainer[test]>=2.12.0

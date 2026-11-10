@@ -1,0 +1,261 @@
+{
+  "config": {
+    "create_entry": {
+      "refresh_message": "You need to refresh the page after adding Approved Scripts for the Frontend resource to load. Click finish and then refresh the page."
+    },
+    "abort": {
+      "single_instance_allowed": "Only one Approved Scripts integration can be configured."
+    }
+  },
+  "frontend": {
+    "button": {
+      "cancel": "Cancel",
+      "add_object": "Add object",
+      "add_scalar": "Add scalar",
+      "add": "Add",
+      "delete": "Delete",
+      "delete_allowed_result": "Delete allowed result",
+      "discard": "Discard changes",
+      "edit_allowed_result": "Edit allowed result",
+      "reload_now": "Reload Now",
+      "remove": "Remove",
+      "save": "Save",
+      "update": "Update"
+    },
+    "error": {
+      "application_shell_unavailable": "Home Assistant application shell is unavailable",
+      "execution_failed": "Approved script failed: {error}",
+      "open_popover": "Could not open script approval: {error}",
+      "popover_load_timeout": "Timed out loading Home Assistant's adaptive popover",
+      "save_approval": "Could not save script approval: {error}"
+    },
+    "confirmation": {
+      "discard_approval_text": "Your changes to this script approval will be lost.",
+      "discard_approval_title": "Discard unsaved changes?",
+      "delete_allowed_result_text": "This rendered result will no longer be allowed for this template.",
+      "delete_allowed_result_title": "Delete allowed result?"
+    },
+    "form": {
+      "allowed_users": "Allowed users",
+      "allowed_users_helper": "Administrators are not listed because they can run scripts directly.",
+      "add_object_result": "Add object result",
+      "add_scalar_result": "Add scalar result",
+      "allowed_template_results": "Allowed template results (one per line)",
+      "allowed_template_results_helper": "The template may render only one of these exact values.",
+      "acknowledge_protected_actions": "Acknowledge the protected actions before saving.",
+      "approve_for_non_admin_users": "Approve for non-admin users",
+      "protected_actions": "Protected actions in this script",
+      "protected_actions_acknowledged": "I have reviewed these protected actions",
+      "correct_policy_fields": "Correct the protected-action policy fields before saving.",
+      "invalid_object_result": "Enter valid JSON for an object result.",
+      "edit_allowed_result": "Edit allowed result",
+      "object_result_helper": "Enter a JSON object or array.",
+      "actions": "Actions",
+      "result_value": "Value",
+      "select_non_admin_user": "Select at least one non-admin user.",
+      "template": "Template",
+      "template_results_required": "Provide at least one allowed result for every template."
+    },
+    "protected_action": {
+      "allowed_results": {
+        "description": "This template may run only when it renders one of these values.",
+        "label": "Allowed rendered results"
+      },
+      "mqtt_publish": {
+        "title": "MQTT publish",
+        "warning": "Runs this publish using system context with the approved payload policy."
+      },
+      "lock_usercode_results": {
+        "description": "This template may set only one of these approved user-code values."
+      },
+      "zwave_js_set_lock_usercode": {
+        "title": "Z-Wave JS set lock user code",
+        "warning": "Changes the approved user code for the fixed lock and code slot using system context."
+      }
+    },
+    "popover": {
+      "description": "Choose the non-admin users who can run this script in system context.",
+      "title": "Approve script"
+    },
+    "panel": {
+      "column": {
+        "actions": "Actions",
+        "entity_id": "Entity ID",
+        "name": "Script",
+        "state": "Approval"
+      },
+      "configure": "Configure approval",
+      "description": "Review and manage delegated script approvals.",
+      "editor_failed": "Could not open script approval. Try again.",
+      "editor_unavailable": "The script approval editor is still loading. Try again in a moment.",
+      "empty": "No scripts are available.",
+      "state": {
+        "approved": "Approved",
+        "not_required": "Approval not required",
+        "not_supported": "Approval not supported",
+        "stale": "Needs review",
+        "suspended": "Suspended",
+        "unapproved": "Not approved"
+      },
+      "title": "Approved Scripts"
+    },
+    "row": {
+      "configure": "Configure script approval",
+      "headline": "Approve script",
+      "supporting_text": "Configure to allow non-admin users to run this script in system context"
+    },
+    "stale": {
+      "approval_paused": "Approval paused: {script_name} changed. Review and reapprove it from Repairs.",
+      "approvals_paused": "{count} script approvals were paused because their scripts changed. Review and reapprove them from Repairs.",
+      "open_repairs": "Open Repairs"
+    },
+    "version": {
+      "updated": "💡 Approved Scripts has been updated to {version} 💡 Browser is running {frontend_version}. Reloading in... "
+    }
+  },
+  "issues": {
+    "stale_approval": {
+      "fix_flow": {
+        "abort": {
+          "already_repaired": "This approval has already been updated or removed.",
+          "issue_ignored": "This script remains unapproved.",
+          "not_configured": "Approved Scripts is not configured."
+        },
+        "error": {
+          "approval_failed": "The approval could not be saved. Check the selected users, then try again.",
+          "script_changed": "The script changed before it could be approved. Review the current script and submit again.",
+          "script_ineligible": "The current script is not eligible for delegated execution and remains unapproved. Edit it to use supported static actions, or ignore this Repair to intentionally leave it unapproved.",
+          "script_unavailable": "The script is not currently available and remains unapproved. Restore it, or ignore this Repair to intentionally leave it unapproved.",
+          "selected_users_invalid": "One or more selected users are no longer active non-admin users.",
+          "selected_users_required": "Select at least one non-admin user."
+        },
+        "step": {
+          "init": {
+            "description": "{script_name} changed after it was approved, so delegated execution has been paused. Choose whether to re-approve it or leave it unapproved.",
+            "menu_options": {
+              "ignore": "Leave unapproved",
+              "reapprove": "Re-approve"
+            },
+            "title": "Script approval needs review"
+          },
+          "reapprove": {
+            "data": {
+              "allowed_user_ids": "Allowed users",
+              "protected_actions_acknowledged": "I have reviewed the protected actions"
+            },
+            "data_description": {
+              "allowed_user_ids": "Administrators are not listed because they can run scripts directly."
+            },
+            "description": "{script_name} changed after it was approved, so delegated execution has been paused. Click Submit to re-approve.",
+            "title": "Review and reapprove {script_name}"
+          },
+          "reapprove_blocked": {
+            "description": "{script_name} remains unapproved because re-approval could not be completed ({reason}). Choose whether to try again or leave it unapproved.",
+            "menu_options": {
+              "ignore": "Leave unapproved",
+              "reapprove": "Try re-approval again"
+            },
+            "title": "Script approval remains paused"
+          }
+        }
+      },
+      "title": "Script approval needs review: {script_name}"
+    }
+  },
+  "options": {
+    "abort": {
+      "no_script_approvals": "No script approvals are configured.",
+      "no_script_selected": "No script was selected.",
+      "not_configured": "Approved Scripts is not configured.",
+      "manage_in_admin_panel": "Manage script approvals from the Approved Scripts admin page."
+    },
+    "error": {
+      "already_approved": "This script already has an approval record. Use Edit script approval instead.",
+      "approval_failed": "The script approval could not be saved. Check the script and selected users, then try again.",
+      "new_approval_must_be_enabled": "A new script approval must be enabled.",
+      "script_changed": "The script changed before it could be approved. Review the current script and submit again.",
+      "script_ineligible": "This script contains an unsupported action or field and cannot be approved for delegated execution.",
+      "script_unavailable": "This script is not currently available. Restore it, then try again.",
+      "selected_users_invalid": "One or more selected users are no longer active non-admin users.",
+      "selected_users_required": "Select at least one non-admin user."
+    },
+    "step": {
+      "add_script_approval": {
+        "data": {
+          "entity_id": "Script"
+        },
+        "description": "Select a script to approve for non-admin users.",
+        "title": "Add script approval"
+      },
+      "configure_script_approval": {
+        "data": {
+          "allowed_user_ids": "Allowed users",
+          "enabled": "Approve for non-admin users"
+        },
+        "data_description": {
+          "allowed_user_ids": "Administrators are not listed because they can run scripts directly."
+        },
+        "description": "Choose the non-admin users who can run this script in system context. After submitting, review protected-action data templates before the approval is saved.",
+        "title": "Configure script approval: {script_name}"
+      },
+      "configure_protected_action": {
+        "data": {
+          "template_source": "Template source"
+        },
+        "description": "Review the protected action {action_title}. The template source is from the saved script; submit to configure its allowed results.",
+        "title": "Review protected action: {action_title}"
+      },
+      "manage_protected_action": {
+        "description": "Add exact scalar or object values for protected action {action_title}. Allowed results: {allowed_results}.",
+        "menu_options": {
+          "add_object_result": "Add object result",
+          "add_scalar_result": "Add scalar result",
+          "finish_protected_action": "Finish this protected action"
+        },
+        "title": "Allowed results: {action_title}"
+      },
+      "add_scalar_result": {
+        "data": {
+          "result": "Allowed scalar result"
+        },
+        "description": "Add one exact scalar value that the template may render.",
+        "title": "Add allowed scalar result"
+      },
+      "add_object_result": {
+        "data": {
+          "result": "Allowed object result"
+        },
+        "description": "Add one exact JSON object or array that the template may render.",
+        "title": "Add allowed object result"
+      },
+      "edit_script_approval": {
+        "data": {
+          "entity_id": "Script"
+        },
+        "description": "Select a script approval to edit.",
+        "title": "Edit script approval"
+      },
+      "init": {
+        "menu_options": {
+          "manage_script_approvals": "Manage script approvals"
+        },
+        "title": "Approved Scripts settings"
+      },
+      "manage_script_approvals": {
+        "menu_options": {
+          "add_script_approval": "Add script approval",
+          "edit_script_approval": "Edit script approval",
+          "remove_script_approval": "Remove script approval"
+        },
+        "title": "Manage script approvals"
+      },
+      "remove_script_approval": {
+        "data": {
+          "entity_id": "Script"
+        },
+        "description": "Select a script approval to remove. This immediately prevents delegated execution.",
+        "title": "Remove script approval"
+      }
+    }
+  }
+}

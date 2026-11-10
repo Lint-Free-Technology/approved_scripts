@@ -1,0 +1,19 @@
+{
+  "name": "approved-scripts",
+  "private": true,
+  "version": "0.3.0",
+  "description": "Approved Scripts frontend bundle for Home Assistant",
+  "scripts": {
+    "build": "rollup -c",
+    "check:frontend": "tsc --project tsconfig.json",
+    "compress-build-artifacts": "node scripts/gzip-build.mjs",
+    "prebuild": "node scripts/sync-manifest-version.mjs",
+    "postbuild": "npm run compress-build-artifacts",
+    "watch": "rollup -c --watch"
+  },
+  "devDependencies": {
+    "rollup": "4.67.4",
+    "rollup-plugin-esbuild": "6.2.1",
+    "typescript": "7.0.2"
+  }
+}

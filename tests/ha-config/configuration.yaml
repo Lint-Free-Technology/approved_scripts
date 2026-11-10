@@ -1,0 +1,12 @@
+homeassistant:
+  country: AU
+  time_zone: Australia/Sydney
+
+default_config:
+
+script: !include scripts.yaml
+
+# Test-only custom integration that registers mqtt.publish locally. It lets
+# runtime tests observe a successful Approved Scripts execution without a broker.
+fake_mqtt:
+fake_zwave_js:

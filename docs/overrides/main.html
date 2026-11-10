@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+    <meta property="og:image" content="/assets/images/social@2x.png" />
+    <meta property="og:type" content="object" />
+    {% if page and page.meta and page.meta.description %}
+        <meta property="og:description" content="{{ page.meta.description }}" />
+    {% else %}
+    <meta property="og:description" content="💡 Approved Scripts 💡 Delegate carefully bounded admin-only script actions to named non-admin Home Assistant users." />
+    {% endif %}
+{% endblock %}

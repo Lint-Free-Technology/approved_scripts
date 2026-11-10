@@ -1,0 +1,76 @@
+# Keep this close to the UIX Zensical/MkDocs shape so LFT documentation sites
+# have the same navigation, editing, and release expectations.
+site_name: Approved Scripts
+site_url: https://as.lf.technology
+docs_dir: source
+theme:
+  name: material
+  language: en
+  variant: classic
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.expand
+    - toc.integrate
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  logo: assets/images/icon.png
+  favicon: assets/images/favicon.svg
+  custom_dir: overrides
+extra:
+  generator: false
+plugins:
+  - search
+  - glightbox
+  - git-revision-date-localized:
+      enable_creation_date: true
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.blocks.caption
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+nav:
+  - Approved Scripts:
+      - About: index.md
+  - Quick Start:
+      - Overview: quick-start/index.md
+  - Using Approved Scripts:
+      - using/index.md
+      - Template result policies: using/templates.md
+      - Repairs and changed scripts: using/repairs.md
+  - Security boundaries:
+      - security/index.md
+      - Capability model: security/capability-model.md
+      - Capability threat matrix: security/capability-matrix.md
+  - Development:
+      - development/index.md
+      - Security testing: development/security-testing.md
+      - Contributing action policies: contributing.md
+repo_url: https://github.com/Lint-Free-Technology/approved-scripts
+repo_name: GitHub
+edit_uri: blob/main/docs/source/
+extra_css:
+  - stylesheets/extra.css #https://maketintsandshades.com/#colors=CE3226&hashtag=0&steps=10
+
