@@ -1,5 +1,7 @@
 {
   "name": "Approved Scripts",
   "render_readme": true,
-  "homeassistant": "2026.11.0"
+  "homeassistant": "2026.11.0",
+  "documentation": "https://as.lf.technology/",
+  "issue_tracker": "https://github.com/Lint-Free-Technology/approved_scripts/issues"
 }

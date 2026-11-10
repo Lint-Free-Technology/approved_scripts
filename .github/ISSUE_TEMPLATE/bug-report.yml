@@ -1,0 +1,86 @@
+name: Bug Report
+description: For reporting bugs or unexpected behavior
+title: "[Bug]: "
+body:
+  - type: textarea
+    id: ha_version
+    attributes:
+      label: My Home Assistant Version
+      description: You can view your Home Assistant version in _Settings > About_.
+      placeholder: |
+        Core: 2026.11.0
+        Frontend: 20261110.0
+        Approved Scripts: 0.3.0
+    validations:
+      required: true
+  - type: dropdown
+    id: install_method
+    attributes:
+      label: My Approved Scripts installation method
+      multiple: false
+      options:
+        - HACS
+        - Manual
+    validations:
+      required: true
+  - type: textarea
+    id: what_i_am_doing
+    attributes:
+      label: What I am doing
+    validations:
+      required: true
+  - type: textarea
+    id: what_i_expect_to_happen
+    attributes:
+      label: What I expect to happen
+    validations:
+      required: true
+  - type: textarea
+    id: what_happened_instead
+    attributes:
+      label: What happened instead
+    validations:
+      required: true
+  - type: textarea
+    id: minimal_steps_to_reproduce
+    attributes:
+      label: Minimal steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: relevant_configuration
+    attributes:
+      label: Relevant approved-script configuration
+      description: Remove secrets, credentials, access codes, and other sensitive data before posting.
+      placeholder: Paste the smallest relevant YAML or UI configuration here.
+      render: YAML
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log messages
+      description: Copy relevant Home Assistant or browser-console errors. Remove secrets, credentials, access codes, and other sensitive data before posting.
+      placeholder: Paste relevant logs or console errors here.
+      render: text
+  - type: markdown
+    attributes:
+      value: "---"
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: By checking each box below I indicate that I ...
+      options:
+        - label: Understand that this is a channel for reporting bugs, not a support forum (https://community.home-assistant.io/).
+          required: true
+        - label: Have made sure I am using the latest version of the integration.
+          required: true
+        - label: Have searched Home Assistant logs for relevant Approved Scripts errors or warnings.
+          required: true
+        - label: Have removed secrets, credentials, access codes, and other sensitive data from this report.
+          required: true
+        - label: Understand that failure to follow the template above may increase the time required to handle my bug report, or cause it to be closed without further action.
+          required: true
