@@ -68,7 +68,7 @@ nav:
       - development/index.md
       - Security testing: development/security-testing.md
       - Contributing action policies: contributing.md
-repo_url: https://github.com/Lint-Free-Technology/approved-scripts
+repo_url: https://github.com/Lint-Free-Technology/approved_scripts
 repo_name: GitHub
 edit_uri: blob/main/docs/source/
 extra_css:
