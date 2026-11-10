@@ -74,7 +74,7 @@ jobs:
         uses: mathieudutour/github-tag-action@af99e60ce8132224b8e6ebab5023449fe256ed46
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          release_branches: '^main$'
+          release_branches: '^master$'
           pre_release_branches: '^dev$'
           append_to_pre_release_tag: beta
           default_bump: false
@@ -106,8 +106,8 @@ jobs:
         if: ${{ !inputs.dry_run && !inputs.recover_release && steps.version.outputs.new_version != '' }}
         run: |
           case "$GITHUB_REF_NAME" in
-            main|dev) ;;
-            *) echo "Releases may only run from main or dev." >&2; exit 1 ;;
+            master|dev) ;;
+            *) echo "Releases may only run from master or dev." >&2; exit 1 ;;
           esac
       - name: Set version and build release artifacts
         if: ${{ !inputs.dry_run && !inputs.recover_release && steps.version.outputs.new_version != '' }}
