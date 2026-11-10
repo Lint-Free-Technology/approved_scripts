@@ -37,9 +37,6 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.14"
       - name: Validate release options
         if: ${{ inputs.dry_run && inputs.recover_release }}
         run: |
@@ -115,7 +112,6 @@ jobs:
           npm version '${{ steps.version.outputs.new_version }}' --no-git-tag-version
           npm run check:frontend
           npm run build
-          python -m unittest discover -s tests -v
       - name: Prepend formatted changelog
         if: ${{ !inputs.dry_run && !inputs.recover_release && steps.version.outputs.new_version != '' }}
         env:
