@@ -21,4 +21,4 @@ This integration is intentionally not a generic service whitelist or a script sa
 
 - [Capability model](security/capability-model.md)
 - [Capability threat matrix](security/capability-matrix.md)
-- [Contributing action policies](contributing.md)
+- [Contributing](contributing.md)

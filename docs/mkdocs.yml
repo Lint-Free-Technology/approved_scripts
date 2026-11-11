@@ -64,10 +64,7 @@ nav:
       - security/index.md
       - Capability model: security/capability-model.md
       - Capability threat matrix: security/capability-matrix.md
-  - Development:
-      - development/index.md
-      - Security testing: development/security-testing.md
-      - Contributing action policies: contributing.md
+  - Contributing: contributing.md
 repo_url: https://github.com/Lint-Free-Technology/approved_scripts
 repo_name: GitHub
 edit_uri: blob/main/docs/source/
