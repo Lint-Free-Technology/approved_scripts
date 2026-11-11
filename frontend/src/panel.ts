@@ -171,6 +171,22 @@ class ApprovedScriptsPanel extends HTMLElement {
     }
   }
 
+  private centreActionColumnHeader(table: HTMLElement): void {
+    // `ha-data-table` renders its column headers in its shadow root. Add a
+    // table-local style after its first render so this only affects Actions.
+    requestAnimationFrame(() => {
+      const tableRoot = table.shadowRoot;
+      if (
+        !tableRoot ||
+        tableRoot.querySelector("style[data-approved-scripts-actions-header]")
+      ) return;
+      const style = document.createElement("style");
+      style.dataset.approvedScriptsActionsHeader = "";
+      style.textContent = ".mdc-data-table__header-cell:last-child { text-align:center; }";
+      tableRoot.append(style);
+    });
+  }
+
   private render(): void {
     const root = this.shadowRoot || this.attachShadow({ mode: "open" });
     root.replaceChildren();
@@ -197,7 +213,8 @@ class ApprovedScriptsPanel extends HTMLElement {
         direction:ltr;
         padding:0;
       }
-      p { color:var(--secondary-text-color); margin:0 0 24px; }
+      /* .intro already supplies its 20px spacing before the table. */
+      p { color:var(--secondary-text-color); }
       ha-data-table { display:block; }
     `;
     const appBar = document.createElement("ha-top-app-bar-fixed") as HTMLElement & {
@@ -268,6 +285,7 @@ class ApprovedScriptsPanel extends HTMLElement {
     content.append(section);
     appBar.append(title, content);
     root.append(style, appBar);
+    this.centreActionColumnHeader(table);
   }
 }
 
