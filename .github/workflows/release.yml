@@ -130,7 +130,7 @@ jobs:
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Create GitHub release
         if: ${{ !inputs.dry_run && steps.version.outputs.new_version != '' }}
-        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3
         with:
           tag_name: ${{ steps.version.outputs.new_tag }}
           target_commitish: ${{ steps.release_commit.outputs.sha }}
@@ -139,7 +139,7 @@ jobs:
           make_latest: ${{ steps.version.outputs.prerelease == 'true' && 'false' || 'true' }}
       - name: Recover GitHub release
         if: ${{ !inputs.dry_run && inputs.recover_release }}
-        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3
         with:
           tag_name: ${{ steps.recovery.outputs.tag }}
           target_commitish: ${{ github.sha }}
