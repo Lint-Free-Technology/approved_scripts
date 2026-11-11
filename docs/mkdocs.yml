@@ -9,7 +9,6 @@ theme:
   variant: classic
   features:
     - navigation.tabs
-    - navigation.indexes
     - navigation.expand
     - toc.integrate
     - navigation.top
