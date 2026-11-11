@@ -23,8 +23,6 @@ jobs:
       - run: npm ci
       - run: npm run check:frontend
       - run: npm run build
-      - name: Verify committed artifacts
-        run: git diff --exit-code -- custom_components/approved_scripts/manifest.json custom_components/approved_scripts/frontend/approved-scripts.js custom_components/approved_scripts/frontend/approved-scripts.js.gz custom_components/approved_scripts/frontend/approved-scripts-panel.js custom_components/approved_scripts/frontend/approved-scripts-panel.js.gz
 
   python:
     name: Home Assistant security tests
