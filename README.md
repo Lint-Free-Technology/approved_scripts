@@ -23,3 +23,9 @@ Install using HACS, restart Home Assistant, add **Approved Scripts** from **Sett
 ## Contribution
 
 See the [contributing guide](https://as.lf.technology/contributing/), especially the action-policy requirements for any new delegated capability.
+
+## Licensing
+
+Approved Scripts code is licensed under the [MIT License](./LICENSE.txt). Approved Scripts documentation prose and original documentation media are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); documentation code and configuration examples remain MIT. See [the documentation license](./docs/LICENSE.md) for the full scope.
+___
+If you like Approved Scripts please make sure to ⭐️ the repository. Thank you.
