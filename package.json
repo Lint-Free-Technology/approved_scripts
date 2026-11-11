@@ -1,7 +1,7 @@
 {
   "name": "approved-scripts",
   "private": true,
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Approved Scripts frontend bundle for Home Assistant",
   "scripts": {
     "build": "rollup -c",
