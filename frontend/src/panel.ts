@@ -213,8 +213,6 @@ class ApprovedScriptsPanel extends HTMLElement {
         direction:ltr;
         padding:0;
       }
-      /* .intro already supplies its 20px spacing before the table. */
-      p { color:var(--secondary-text-color); }
       ha-data-table { display:block; }
     `;
     const appBar = document.createElement("ha-top-app-bar-fixed") as HTMLElement & {
@@ -231,9 +229,6 @@ class ApprovedScriptsPanel extends HTMLElement {
     // Use the panel's responsive signal rather than leaving it narrow always.
     section.isWide = !this._narrow;
     section.setAttribute("full-width", "");
-    const description = document.createElement("p");
-    description.slot = "introduction";
-    description.textContent = this.text("panel.description");
     const table = document.createElement("ha-data-table") as HTMLElement & {
       columns?: unknown;
       data?: unknown[];
@@ -281,7 +276,7 @@ class ApprovedScriptsPanel extends HTMLElement {
       approval_rank: APPROVAL_RANK[script.approval_state],
       approval_state: this.text(`panel.state.${script.approval_state}`),
     }));
-    section.append(description, table);
+    section.append(table);
     content.append(section);
     appBar.append(title, content);
     root.append(style, appBar);
